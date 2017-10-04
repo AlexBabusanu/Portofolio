@@ -106,8 +106,44 @@ nav li {
 
 
 /* contact */
+.contact h1 {
+	margin:50px;
+}
+.mail {
+	float:left;
+	width:50%;
+}
+.info {
+	margin:5px;
+	display:block;
+	height:25px;
+	border-radius:3%;
+	background:#000;
+	border:1px solid gray;
+	color:#fff;
+	padding-left:10px;
 
+}
+.message {
+	height:250px;
+	width:400px;
+	vertical-align: top;
 
+}
+textarea {
+	padding-top:10px;
+	resize:none;
+}
+.info:focus {
+	outline:none;
+}
+
+#map {
+	margin:5px 5px 50px 5px;
+	height:330px;
+	width:50%;
+
+}
 /* footer */
 
 footer {
@@ -115,4 +151,25 @@ footer {
 	height:150px;
 	background:#2A3A3F;
 	text-align:center;
+}
+footer p {
+	padding-top:30px;
+	font-size:15px;
+	color:gray;
+}
+footer a {
+	line-height:1.7;
+	margin-top:30px;
+	color:gray;
+	width:36px;
+	height:36px;
+	position:relative;
+	display:inline-block;
+	font-size:20px;
+	border-radius:50%;
+	background-color:rgba(0,0,0,0.1);
+}
+footer a:hover {
+	color:inherit;
+	background-color:rgba(0,0,0,0.5);
 }
