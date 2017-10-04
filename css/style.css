@@ -1,3 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Muli');
+
+/* everything */
+* {
+	margin:0;
+	padding:0;
+	font-family: 'Muli', sans-serif;
+
+}
+html {
+	height:100%;
+}
 body {
-	background-color:black;
+	margin:0;
+	padding:0;
+	height:100%;
+	width:100%;
+	background-color:#000;
+	color:#f4eb42;
+}
+
+ul {
+	list-style:none;
+}
+a {
+	text-decoration: none;
+	color:inherit;
+}
+/* header */
+
+header {
+	position:absolute;
+	z-index:10;
+	max-width:980px;
+	margin:0 auto;
+	width:100%;
+	left:0;
+	right:0;
+
+}
+nav ul {
+	float:right;
+}
+nav li {
+	float:left;
+	padding:15px;
+}
+
+/* hero */
+.main {
+	height:100%;
+	width:100%;
+}
+.hero {
+	background-image: url(../media/hero.jpeg);
+	position:relative;
+	background-size:cover;
+	background-position: center;
+	width:100%;
+	height:100%;
+}
+.heroDarken {
+	height:100%;
+	width:100%;
+	background-color:#000;
+	z-index:2;
+	position:absolute;
+	opacity:0.5;
+}
+.heroText {
+	position:absolute;
+	top:50%;
+	left:40%;
+	z-index:3;
+}
+
+/* about */
+
+.content {
+	max-width:980px;
+	margin:0 auto;
+	text-align:center;
+}
+.about h1 {
+	margin: 50px 0 20px;
+}
+.about h3 {
+	margin:0 0 50px;
+}
+.about li {
+	float:left;
+	width:30%;
+	padding:0 1.5%;
+
+}
+.icon {
+	font-size:40px;
+	color:red;
+}
+.about p {
+	color:#fff;
+}
+
+/* projects */
+
+
+
+/* contact */
+
+
+/* footer */
+
+footer {
+	width:100%;
+	height:150px;
+	background:#2A3A3F;
+	text-align:center;
 }
