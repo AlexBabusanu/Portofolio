@@ -10,13 +10,16 @@
 html {
 	height:100%;
 }
+h1 {
+	margin:50px;
+}
 body {
 	margin:0;
 	padding:0;
 	height:100%;
 	width:100%;
 	background-color:#000;
-	color:#f4eb42;
+	color:#fff;
 }
 
 ul {
@@ -45,9 +48,14 @@ nav li {
 	float:left;
 	padding:15px;
 }
+nav li:hover {
+	border-bottom:solid 1px #fff;
+}
 
 /* hero */
 .main {
+
+	text-align:center;
 	height:100%;
 	width:100%;
 }
@@ -69,9 +77,13 @@ nav li {
 }
 .heroText {
 	position:absolute;
-	top:50%;
-	left:40%;
+	top:20%;
+	left:10%;
 	z-index:3;
+	margin:auto;
+}
+.heroText h1{
+	text-align:left;
 }
 
 /* about */
@@ -80,6 +92,9 @@ nav li {
 	max-width:980px;
 	margin:0 auto;
 	text-align:center;
+}
+.about {
+	overflow: hidden;
 }
 .about h1 {
 	margin: 50px 0 20px;
@@ -103,8 +118,44 @@ nav li {
 
 /* projects */
 
+.projects {
+	min-height:600px;
+	overflow:hidden;
+	position:relative;
+}
+.projects h1 {
+	position:relative;
+	z-index:5;
+}
+.backgroundProjects{
+	opacity:0;
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	background-size:cover;
+	background-position:center;
+	background-image:url(../media/idiot.jpg);
+	transition: opacity 0.6s ease-in-out;
+
+	
+
+}
+.idiot {
+	position:relative;
+	z-index:5;
+}
+.idiot:hover {
+	color:red;
+}
+.idiot:hover ~ .backgroundProjects{
+	
+	opacity:0.5;
+	filter: alpha(opacity=50);
 
 
+}
 /* contact */
 .contact h1 {
 	margin:50px;
@@ -137,11 +188,12 @@ textarea {
 .info:focus {
 	outline:none;
 }
-
+.location {
+	overflow:hidden;
+}
 #map {
 	margin:5px 5px 50px 5px;
 	height:330px;
-	width:50%;
 
 }
 /* footer */
