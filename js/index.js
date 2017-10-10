@@ -42,35 +42,35 @@ function loadScript() {
 };
 
 var text = ["writing code!", "designing websites!", "testing!", "challanges!"];
-var count = 0;
+var word = 0;
 
 function textAnimation(){
 	
-	var counter = 0;
-	var test = document.getElementById('mod');
+	var letter = 0;
+	var writing = document.getElementById('writing');
 
 	
 	var x = setInterval(function(){
-		test.innerHTML += text[count][counter];		
-		counter++;		
-		if(counter===text[count].length){
+		writing.innerHTML += text[word][letter];		
+		letter++;		
+		if(letter===text[word].length){
 			clearInterval(x);
 			setTimeout(function(){
 				var y = setInterval(function(){
-					var hello =  test.innerHTML;
-					var helloCut = hello.slice(0, counter);
-					test.innerHTML = helloCut;
-					counter--;
-					if(counter===0){
+					var include =  writing.innerHTML;
+					var includeCut = include.slice(0, letter);
+					writing.innerHTML = includeCut;
+					letter--;
+					if(letter===0){
 						setTimeout(function(){
-							test.innerHTML = "";
+							writing.innerHTML = "";
 						},150);						
 						setTimeout(function(){
 							clearInterval(y);
-							if(count +1 === text.length){
-								count = -1;
+							if(word +1 === text.length){
+								word = -1;
 							};
-							textAnimation(count++);
+							textAnimation(word++);
 						}, 1000);						
 					}
 				},100);
@@ -92,9 +92,45 @@ function dash(){
 	}, 600);
 };
 
+var about = [document.getElementById("aboutLink"), document.getElementById("about")];
+var contact = [document.getElementById("contactLink"), document.getElementById("contact")];
+var home = [document.getElementById("homeLink"), document.getElementById("homes")];
+console.log(about)
+function smoothScroll(x){
+		x[0].addEventListener("click", function(){
+			if(pageYOffset < x[1].offsetTop){
+			var y = setInterval(function(){
+		        window.scrollBy(0, 10);
+		        console.log(window.pageYOffset)
+			      if(window.pageYOffset >= x[1].offsetTop || window.pageYOffset >= document.body.scrollHeight - window.innerHeight){
+			        console.log("stop")
+			        clearInterval(y);
+			      } 
+			        return;
+			      }, 0.1)
+			}
+			else {
+			var i = setInterval(function(){
+				window.scrollBy(0, -10);
+				console.log(window.pageYOffset)
+				if(window.pageYOffset <= x[1].offsetTop || window.pageYOffset === 0){
+					console.log("stop");
+					clearInterval(i);
+				}
+			}, 0.1);
+			}	
+		}, false);
+
+		
+}
+
+
 window.onload = function() {
 
-loadScript();
-textAnimation(count);
+//loadScript();
+textAnimation(word);
 dash();
+smoothScroll(about);
+smoothScroll(contact);
+smoothScroll(home);
 };
