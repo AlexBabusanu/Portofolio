@@ -191,8 +191,7 @@ function header(){
 };
 
 window.onload = function() {
-
-//loadScript();
+loadScript();
 textAnimation(word);
 dash();
 smoothScroll(about);
