@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Muli');
+@import url('https://fonts.googleapis.com/css?family=Muli|Mr+De+Haviland');
 
 /* everything */
 * {
@@ -6,6 +6,9 @@
 	padding:0;
 	font-family: 'Muli', sans-serif;
 
+}
+*:focus {
+	outline:none;
 }
 html {
 	height:100%;
@@ -32,30 +35,55 @@ a {
 /* header */
 
 header {
-	position:absolute;
+	position:fixed;
 	z-index:10;
-	max-width:980px;
 	margin:0 auto;
 	width:100%;
 	left:0;
 	right:0;
 
 }
+.logo a {
+	font-family: 'Mr De Haviland', cursive;
+	position:relative;
+	font-size:40px;
+	float:left;
+	margin:5px;
+}
+
 nav ul {
 	float:right;
 }
 nav li {
 	float:left;
-	padding:15px;
+	height:50px;
+	width:70px;
 }
 nav li:hover {
-	border-bottom:solid 1px #fff;
+	text-shadow: 2px 2px red;
 }
 
 nav button {
 	background:none;
 	color:inherit;
 	border:none;
+	height:100%;
+	width:100%;
+}
+nav button:hover {
+	cursor:pointer;
+	font-weight:bold;
+}
+header .container {
+	max-width:980px;
+	margin:auto;
+	position:relative;
+}
+#backgroundNav {
+	width:100%;
+	height:0px;
+	position:absolute;
+	background-color:#fff;
 }
 /* hero */
 .main {
@@ -93,12 +121,11 @@ nav button {
 
 /* about */
 
-.content {
+
+.about {
 	max-width:980px;
 	margin:0 auto;
 	text-align:center;
-}
-.about {
 	overflow: hidden;
 	transition: transform 0.6s ease-in-out;
 }
@@ -125,6 +152,9 @@ nav button {
 /* projects */
 
 .projects {
+	max-width:980px;
+	margin:0 auto;
+	text-align:center;
 	min-height:600px;
 	overflow:hidden;
 	position:relative;
@@ -163,6 +193,11 @@ nav button {
 
 }
 /* contact */
+.contact {
+	max-width:980px;
+	margin:0 auto;
+	text-align:center;
+}
 .contact h1 {
 	margin:50px;
 }
@@ -191,9 +226,7 @@ textarea {
 	padding-top:10px;
 	resize:none;
 }
-.info:focus {
-	outline:none;
-}
+
 .location {
 	overflow:hidden;
 }

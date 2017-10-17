@@ -1,3 +1,8 @@
+
+
+
+
+
 function map() {
 	var center = {lat: 47.934315, lng: 25.3338432};
 	var mark = {lat: 47.1572996,lng: 27.5886934};
@@ -41,11 +46,11 @@ function loadScript() {
   document.body.appendChild(script);
 };
 
-var text = ["writing code!", "designing websites!", "testing!", "challanges!"];
-var word = 0;
 
+var word = 0;
 function textAnimation(){
-	
+	var text = ["writing code!", "designing websites!", "testing!", "challanges!"];
+
 	var letter = 0;
 	var writing = document.getElementById('writing');
 
@@ -92,18 +97,16 @@ function dash(){
 	}, 600);
 };
 
+
 var about = [document.getElementById("aboutLink"), document.getElementById("about")];
 var contact = [document.getElementById("contactLink"), document.getElementById("contact")];
 var home = [document.getElementById("homeLink"), document.getElementById("homes")];
-console.log(about)
 function smoothScroll(x){
 		x[0].addEventListener("click", function(){
 			if(pageYOffset < x[1].offsetTop){
 			var y = setInterval(function(){
 		        window.scrollBy(0, 10);
-		        console.log(window.pageYOffset)
 			      if(window.pageYOffset >= x[1].offsetTop || window.pageYOffset >= document.body.scrollHeight - window.innerHeight){
-			        console.log("stop")
 			        clearInterval(y);
 			      } 
 			        return;
@@ -112,9 +115,7 @@ function smoothScroll(x){
 			else {
 			var i = setInterval(function(){
 				window.scrollBy(0, -10);
-				console.log(window.pageYOffset)
 				if(window.pageYOffset <= x[1].offsetTop || window.pageYOffset === 0){
-					console.log("stop");
 					clearInterval(i);
 				}
 			}, 0.1);
@@ -122,8 +123,72 @@ function smoothScroll(x){
 		}, false);
 
 		
-}
+};
+var test;
+function header(){
+	var fired = false;
+	var headerBackground = document.getElementById("backgroundNav");
+	var height =  headerBackground.style.height;
+	height = height.replace("px", "");
+	height =+ height;
+	var pixels = 1;
+		function grow(){			
+			if(height < 50){
+				height = pixels + height;
+				headerBackground.style.height = height + "px";					
+			}
+			else{
+				headerBackground.parentNode.style.color = "#000";
+				headerBackground.style.borderBottom = "solid 3px #000";
+				fired = false;
+				clearInterval(test);
+				
+			}			
+		}
+		function shrink(){
+			if(height > 0){
+				headerBackground.style.borderBottom = "";
+				height = height - pixels;
+				headerBackground.style.height = height + "px";
+			}
+			else {
+				headerBackground.parentNode.style.color = "#fff"
+				clearInterval(test);
+				fired = false;
+			}
 
+		}
+	window.addEventListener("scroll", function(){
+		if(pageYOffset >= about[1].offsetTop){
+			if(pageYOffset >= contact[1].offsetTop || document.body.scrollHeight - (pageYOffset + window.innerHeight) === 0){
+				about[0].style.fontWeight = "";
+				contact[0].style.fontWeight = "bold";
+
+			}
+			else {
+			about[0].style.fontWeight = "bold";
+			contact[0].style.fontWeight = "";
+			home[0].style.fontWeight = "";
+			}
+		}
+		if(pageYOffset < about[1].offsetTop){
+			about[0].style.fontWeight = "";
+			home[0].style.fontWeight = "bold";
+		}
+		
+		if(pageYOffset >100 && fired == false){
+				fired = true;
+				test = setInterval(grow, 5);
+
+		}
+		if(pageYOffset < 100 && fired == false){
+			fired = true;
+			test = setInterval(shrink, 5);
+		}
+		
+	})
+	
+};
 
 window.onload = function() {
 
@@ -133,4 +198,5 @@ dash();
 smoothScroll(about);
 smoothScroll(contact);
 smoothScroll(home);
+header();
 };
